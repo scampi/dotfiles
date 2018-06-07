@@ -1,0 +1,6 @@
+set showmode
+set relativenumber
+set hlsearch
+set ignorecase
+set matchpairs
+set clipboard+=unnamedplus,unnamed

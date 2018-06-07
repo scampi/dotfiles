@@ -1,0 +1,9 @@
+text/html; xdg-open %s & sleep 2; description=HTML Text; test=test -n "$DISPLAY";  nametemplate=%s.html
+text/html; elinks -dump ; copiousoutput;
+image/*; viewnior %s;
+application/pdf; evince %s;
+pdf/application; evince %s;
+application/msword; libreoffice %s;
+application/vnd.openxmlformats-officedocument.presentationml.presentation; libreoffice %s;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice %s;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s;
