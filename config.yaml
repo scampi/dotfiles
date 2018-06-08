@@ -52,6 +52,9 @@ dotfiles:
   f_init.vim:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
+  f_issue:
+    dst: /etc/issue
+    src: etc/issue
   f_mailcap:
     dst: ~/.mutt/mailcap
     src: mutt/mailcap
