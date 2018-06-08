@@ -108,36 +108,11 @@ dotfiles:
     dst: ~/.xserverrc
     src: xserverrc
 profiles:
+  mars:
+    dotfiles:
+    - ALL
   troy:
     dotfiles:
-    - f_init.vim
-    - f_config
-    - f_i3pystatus_config.py
-    - f_alacritty.yml
-    - f_dunstrc
-    - f_hub
-    - f_redshift.conf
-    - f_chrome-flags.conf
-    - f_dircolors
-    - f_ideavimrc
-    - f_config.lua
-    - f_settings.xml
-    - f_mailcap
-    - f_mutt-colors-solarized-dark-16.muttrc
-    - f_muttrc
-    - f_mutt-alias
-    - f_tv.sh
-    - f_siren-bordeaux.sh
-    - f_git-pass-mapping.ini
-    - f_gitconfig
-    - f_notmuch-config
-    - f_offlineimaprc
-    - f_xmodmap
-    - f_gpg.conf
-    - f_gpg-agent.conf
-    - f_pam_environment
-    - f_xinitrc
-    - f_xserverrc
-    - f_passmenu.sh
+    - ALL
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
