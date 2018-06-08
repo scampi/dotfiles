@@ -95,9 +95,15 @@ dotfiles:
   f_tv.sh:
     dst: ~/.screenlayout/tv.sh
     src: screenlayout/tv.sh
+  f_xinitrc:
+    dst: ~/.xinitrc
+    src: xinitrc
   f_xmodmap:
     dst: ~/.Xmodmap
     src: Xmodmap
+  f_xserverrc:
+    dst: ~/.xserverrc
+    src: xserverrc
 profiles:
   troy:
     dotfiles:
@@ -127,5 +133,7 @@ profiles:
     - f_gpg.conf
     - f_gpg-agent.conf
     - f_pam_environment
+    - f_xinitrc
+    - f_xserverrc
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
