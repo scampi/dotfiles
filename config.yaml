@@ -78,6 +78,9 @@ dotfiles:
     src: offlineimaprc
     trans:
     - gpg
+  f_pam_environment:
+    dst: ~/.pam_environment
+    src: pam_environment
   f_redshift.conf:
     dst: ~/.config/redshift.conf
     src: config/redshift.conf
@@ -123,5 +126,6 @@ profiles:
     - f_xmodmap
     - f_gpg.conf
     - f_gpg-agent.conf
+    - f_pam_environment
 trans:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}
