@@ -45,7 +45,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Escape exec i3lock --show-failed-attempts
 
 # start passmenu
-bindsym $mod+p exec passmenu -i -p 'Password name:' -l 5
+bindsym $mod+p exec ~/.config/i3/passmenu.sh
 
 # start clipmenu
 bindsym $mod+c exec clipmenu -p 'Clipboard:' -l 5
