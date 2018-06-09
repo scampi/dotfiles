@@ -6,6 +6,9 @@ config:
   keepdot: false
   longkey: false
 dotfiles:
+  d_hooks:
+    dst: ~/.config/pacman/hooks
+    src: config/pacman/hooks
   f_alacritty.yml:
     dst: ~/.config/alacritty/alacritty.yml
     src: config/alacritty/alacritty.yml
@@ -58,6 +61,9 @@ dotfiles:
   f_mailcap:
     dst: ~/.mutt/mailcap
     src: mutt/mailcap
+  f_makepkg.conf:
+    dst: ~/.config/pacman/makepkg.conf
+    src: config/pacman/makepkg.conf
   f_mutt-alias:
     dst: ~/.mutt-alias
     src: mutt-alias
