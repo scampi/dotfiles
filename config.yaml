@@ -41,6 +41,9 @@ dotfiles:
   f_gpg.conf:
     dst: ~/.gnupg/gpg.conf
     src: gnupg/gpg.conf
+  f_gpg.rc:
+    dst: ~/.mutt/gpg.rc
+    src: mutt/gpg.rc
   f_hub:
     dst: ~/.config/hub
     src: config/hub
