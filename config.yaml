@@ -58,6 +58,9 @@ dotfiles:
   f_init.vim:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
+  f_mail.sh:
+    dst: ~/documents/cron/mail.sh
+    src: documents/cron/mail.sh
   f_mailcap:
     dst: ~/.mutt/mailcap
     src: mutt/mailcap
