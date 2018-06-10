@@ -87,9 +87,6 @@ dotfiles:
     src: offlineimaprc
     trans:
     - gpg
-  f_pam_environment:
-    dst: ~/.pam_environment
-    src: pam_environment
   f_passmenu.sh:
     dst: ~/.config/i3/passmenu.sh
     src: config/i3/passmenu.sh
