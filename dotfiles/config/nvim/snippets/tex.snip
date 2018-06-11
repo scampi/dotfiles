@@ -1,0 +1,48 @@
+snippet emph
+abbr    emphasized font
+  \emph{${0:#:text}}
+
+snippet it
+abbr    italic font
+  \textit{${0:#:text}}
+
+snippet bold
+abbr    bold font
+  \textbf{${0:#:text}}
+
+snippet env
+abbr    basic environment
+  \begin{${0:#:env}}
+      ${1:#:text}
+  \end{$0}
+
+snippet desc
+abbr    description
+  \begin{description}
+      \item[${0:#:desc}] ${1:#:item}
+  \end{description}
+
+snippet items
+abbr    itemize, enumerate, ...
+  \begin{${1:#:items}}
+      \item ${2:#:item}
+  \end{$1}
+
+snippet block
+abbr    block
+  \begin{block}{${0:#:block name}}
+      ${1:#:text}
+  \end{block}
+
+snippet figure
+abbr    figure
+  \begin{figure}
+      \centering
+      ${0:#:text}
+  \end{figure}
+
+snippet resizebox
+abbr    resizebox
+  \resizebox{${0:#:width}}{${1:#:height}}{
+      ${2:#:box}
+  }

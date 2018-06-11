@@ -1,0 +1,51 @@
+snippet testdesc
+abbr    Karma test describe
+  describe('${1:#:description}', function () {
+    ${2:#:test}
+  });
+
+snippet testit
+abbr    Karma test it
+  it('${1:#:description}', function () {
+    ${2:#:test}
+  });
+
+snippet expectbe
+abbr    ExpectJS to be something
+  expect(${1:#:test}).to.be(${2:#:result});
+
+snippet expectok
+abbr    ExpectJS to be ok
+  expect(${1:#:test}).to.be.ok();
+
+snippet expectlen
+abbr    ExpectJS to have some length
+  expect(${1:#:test}).to.have.length(${2:#:result});
+
+snippet jparse
+abbr    Parse JSON
+  JSON.parse(${0:JSON})
+
+snippet jprint
+abbr    Pretty JSON
+  JSON.stringify(${0:JSON}, null, ' ')
+
+snippet log
+abbr    Log to console
+  console.log(${0:TARGET});
+
+snippet logt
+abbr    Log trace to console
+  console.trace();
+
+snippet logj
+abbr    Log to console as JSON
+  console.log('${1:TARGET}=[%s]', JSON.stringify($1, null, ' '));
+
+snippet logv
+abbr    Log value to console
+  console.log('${1:TARGET}=[%s]', $1);
+
+snippet logm
+abbr    Log message to console
+  console.log('${0:TARGET}');

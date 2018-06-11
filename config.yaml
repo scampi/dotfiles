@@ -9,6 +9,9 @@ dotfiles:
   d_hooks:
     dst: ~/.config/pacman/hooks
     src: config/pacman/hooks
+  d_snippets:
+    dst: ~/.config/nvim/snippets
+    src: config/nvim/snippets
   f_alacritty.yml:
     dst: ~/.config/alacritty/alacritty.yml
     src: config/alacritty/alacritty.yml
