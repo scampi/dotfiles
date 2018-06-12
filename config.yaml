@@ -110,6 +110,9 @@ dotfiles:
   f_tv.sh:
     dst: ~/.screenlayout/tv.sh
     src: screenlayout/tv.sh
+  f_udiskie.service:
+    dst: ~/.config/systemd/user/udiskie.service
+    src: config/systemd/user/udiskie.service
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
