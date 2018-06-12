@@ -1,0 +1,10 @@
+[Unit]
+Description=handle automounting
+BindsTo=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/udiskie --automount --notify --smart-tray
+Restart=always
+
+[Install]
+WantedBy=default.target
