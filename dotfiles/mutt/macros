@@ -1,0 +1,5 @@
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && vimb ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+macro index \' "<tag-pattern>~R !~D !~F<enter>\
+<tag-prefix><save-message>+[Gmail]/All <enter>" \
+"Archive"
