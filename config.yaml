@@ -1,5 +1,5 @@
 actions:
-  mv_to_chrome_folder: ln -s $HOME/.mozilla/firefox/userC* $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
+  mv_to_chrome_folder: mkdir $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome && ln -s $HOME/.mozilla/firefox/userC* $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
 config:
   backup: true
   banner: true
