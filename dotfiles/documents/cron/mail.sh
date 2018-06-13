@@ -32,14 +32,11 @@ if _is_connected && [ ! -e "$LOCK" ]; then
 
     date=$(date +"%H")
     if [ $date = "14" ]; then
-        _is_connected && offlineimap > /dev/null 2>&1
+        _is_connected && offlineimap -l "$(dirname $0)/offlineimap.log" > /dev/null 2>&1
     else
-        _is_connected && offlineimap -q > /dev/null 2>&1
+        _is_connected && offlineimap -q -l "$(dirname $0)/offlineimap.log" > /dev/null 2>&1
     fi
     _error "offlineimap"
-
-    _is_connected && notmuch new > /dev/null 2>&1
-    _error "notmuch"
 fi
 
 # vim: set ts=4 sw=4 expandtab:
