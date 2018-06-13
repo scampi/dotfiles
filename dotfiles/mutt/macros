@@ -1,2 +1,13 @@
+# get urls in message
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "extract URLs out of a message"
+
+# notmuch integration
+macro index <F8> \
+      "<enter-command>unset wait_key<enter><shell-escape>/usr/bin/notmuch-mutt --prompt search<enter><change-folder-readonly>~/.cache/notmuch/mutt/results<enter>" \
+      "search mail (using notmuch)"
+
+# http://feeding.cloud.geek.nz/posts/handling-multiple-identitiesaccounts-in/
+alternates "(stephane\.campinas@gmail\.com)|(stephane@siren\.solutions)"
+macro index \e1 ":set from=stephane.campinas@gmail.com\n:set status_format=\"───[ Folder: %f ]───[%r-stephane.campinas@gmail.com-%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───\"\n" "Switch to stephane.campinas@gmail.com"
+macro index \e2 ":set from=stephane@siren.solutions\n:set status_format=\"───[ Folder: %f ]───[%r-stephane@siren.solutions-%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───\"\n" "Switch to stephane@siren.solutions"
