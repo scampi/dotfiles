@@ -1,3 +1,5 @@
+actions:
+  mv_to_chrome_folder: ln -s $HOME/.mozilla/firefox/userC* $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
 config:
   backup: true
   banner: true
@@ -116,6 +118,16 @@ dotfiles:
   f_udiskie.service:
     dst: ~/.config/systemd/user/udiskie.service
     src: config/systemd/user/udiskie.service
+  f_userchrome.css:
+    dst: ~/.mozilla/firefox/userChrome.css
+    src: mozilla/firefox/userChrome.css
+    actions:
+    - mv_to_chrome_folder
+  f_usercontent.css:
+    dst: ~/.mozilla/firefox/userContent.css
+    src: mozilla/firefox/userContent.css
+    actions:
+    - mv_to_chrome_folder
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
