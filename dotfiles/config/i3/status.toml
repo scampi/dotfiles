@@ -4,14 +4,14 @@ theme = "slick"
 [[block]]
 block = "custom"
 command = "~/.config/i3/mailcount.sh"
-#on_click = "alacritty -e neomutt"
+on_click = "alacritty -e neomutt"
 
 [[block]]
 block = "toggle"
 text = "office"
 command_state = "xrandr | grep 'HDMI2 connected'"
-command_on = "~/.screenlayout/4kmon_default.sh"
-command_off = "~/.screenlayout/builtin.sh"
+command_on = "~/.config/i3/screenlayout-home.sh"
+command_off = "~/.config/i3/screenlayout-office.sh"
 interval = 5
 
 [[block]]
