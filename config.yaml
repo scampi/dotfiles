@@ -1,5 +1,6 @@
 actions:
-  mv_to_chrome_folder: mkdir $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome && ln -s $HOME/.mozilla/firefox/userC* $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
+  mv_to_chrome_folder: mkdir $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
+    && ln -s $HOME/.mozilla/firefox/userC* $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
 config:
   backup: true
   banner: true
@@ -54,9 +55,6 @@ dotfiles:
     src: config/hub
     trans:
     - gpg
-  f_i3pystatus_config.py:
-    dst: ~/.config/i3pystatus_config.py
-    src: config/i3pystatus_config.py
   f_ideavimrc:
     dst: ~/.ideavimrc
     src: ideavimrc
@@ -72,6 +70,9 @@ dotfiles:
   f_mailcap:
     dst: ~/.mutt/mailcap
     src: mutt/mailcap
+  f_mailcount.sh:
+    dst: ~/.config/i3/mailcount.sh
+    src: config/i3/mailcount.sh
   f_makepkg.conf:
     dst: ~/.config/pacman/makepkg.conf
     src: config/pacman/makepkg.conf
@@ -104,6 +105,12 @@ dotfiles:
   f_redshift.conf:
     dst: ~/.config/redshift.conf
     src: config/redshift.conf
+  f_screenlayout-home.sh:
+    dst: ~/.config/i3/screenlayout-home.sh
+    src: config/i3/screenlayout-home.sh
+  f_screenlayout-office.sh:
+    dst: ~/.config/i3/screenlayout-office.sh
+    src: config/i3/screenlayout-office.sh
   f_settings.xml:
     dst: ~/.m2/settings.xml
     src: m2/settings.xml
@@ -112,6 +119,9 @@ dotfiles:
   f_siren-bordeaux.sh:
     dst: ~/.screenlayout/siren-bordeaux.sh
     src: screenlayout/siren-bordeaux.sh
+  f_status.toml:
+    dst: ~/.config/i3/status.toml
+    src: config/i3/status.toml
   f_tv.sh:
     dst: ~/.screenlayout/tv.sh
     src: screenlayout/tv.sh
@@ -119,15 +129,15 @@ dotfiles:
     dst: ~/.config/systemd/user/udiskie.service
     src: config/systemd/user/udiskie.service
   f_userchrome.css:
+    actions:
+    - mv_to_chrome_folder
     dst: ~/.mozilla/firefox/userChrome.css
     src: mozilla/firefox/userChrome.css
+  f_usercontent.css:
     actions:
     - mv_to_chrome_folder
-  f_usercontent.css:
     dst: ~/.mozilla/firefox/userContent.css
     src: mozilla/firefox/userContent.css
-    actions:
-    - mv_to_chrome_folder
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
