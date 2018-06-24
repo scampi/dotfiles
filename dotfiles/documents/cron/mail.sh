@@ -27,14 +27,14 @@ if _is_connected && [ ! -e "$LOCK" ]; then
     trap "rm -f $LOCK" EXIT INT TERM QUIT
     touch "$LOCK"
 
-    _is_connected && imapfilter -l "$(dirname $0)/imapfilter.log" > /dev/null 2>&1
+    _is_connected && imapfilter -v
     _error "imapfilter"
 
     date=$(date +"%H")
     if [ $date = "14" ]; then
-        _is_connected && offlineimap -l "$(dirname $0)/offlineimap.log" > /dev/null 2>&1
+        _is_connected && offlineimap -s
     else
-        _is_connected && offlineimap -q -l "$(dirname $0)/offlineimap.log" > /dev/null 2>&1
+        _is_connected && offlineimap -q -s
     fi
     _error "offlineimap"
 fi
