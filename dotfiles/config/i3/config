@@ -45,7 +45,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Escape exec i3lock --show-failed-attempts
 
 # start passmenu
-bindsym $mod+p exec ~/.config/i3/passmenu.sh
+bindsym $mod+p exec passmenu -i -p 'Password name:' -l 5
 
 # start clipmenu
 bindsym $mod+c exec clipmenu -p 'Clipboard:' -l 5
@@ -189,6 +189,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	status_command i3status-rs $HOME/.config/i3/status.toml
+#status_command /home/yfful/documents/code/i3status-rust/target/debug/i3status-rs $HOME/.config/i3/status.toml
 	workspace_buttons yes
         tray_output eDP1
 }

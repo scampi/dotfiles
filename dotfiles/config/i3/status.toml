@@ -4,14 +4,25 @@ theme = "slick"
 [[block]]
 block = "custom"
 command = "~/.config/i3/mailcount.sh"
-on_click = "alacritty -e neomutt"
+on_click = "alacritty -t Neomutt -e neomutt"
+#markup = "pango"
+
+[[block]]
+block = "maildir"
+inboxes = [
+	"/home/yfful/.mail/gmail/INBOX",
+	"/home/yfful/.mail/gmail/Sindicetech",
+	"/home/yfful/.mail/gmail/Sindicetech.Github",
+	"/home/yfful/.mail/gmail/rust",
+	"/home/yfful/.mail/gmail/rust.Github",
+]
 
 [[block]]
 block = "toggle"
 text = "office"
 command_state = "xrandr | grep 'HDMI2 connected'"
-command_on = "~/.config/i3/screenlayout-home.sh"
-command_off = "~/.config/i3/screenlayout-office.sh"
+command_off = "~/.config/i3/screenlayout-home.sh"
+command_on = "~/.config/i3/screenlayout-office.sh"
 interval = 5
 
 [[block]]

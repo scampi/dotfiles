@@ -7,6 +7,8 @@ config:
   create: true
   dotpath: dotfiles
   keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
   longkey: false
 dotfiles:
   d_hooks:
@@ -27,8 +29,7 @@ dotfiles:
   f_config.lua:
     dst: ~/.imapfilter/config.lua
     src: imapfilter/config.lua
-    trans:
-    - gpg
+    trans_read: gpg
   f_dircolors:
     dst: ~/.dircolors
     src: dircolors
@@ -53,8 +54,7 @@ dotfiles:
   f_hub:
     dst: ~/.config/hub
     src: config/hub
-    trans:
-    - gpg
+    trans_read: gpg
   f_ideavimrc:
     dst: ~/.ideavimrc
     src: ideavimrc
@@ -79,29 +79,22 @@ dotfiles:
   f_mutt-alias:
     dst: ~/.mutt-alias
     src: mutt-alias
-    trans:
-    - gpg
+    trans_read: gpg
   f_mutt-colors-solarized-dark-16.muttrc:
     dst: ~/.mutt/mutt-colors-solarized-dark-16.muttrc
     src: mutt/mutt-colors-solarized-dark-16.muttrc
   f_muttrc:
     dst: ~/.muttrc
     src: muttrc
-    trans:
-    - gpg
+    trans_read: gpg
   f_notmuch-config:
     dst: ~/.notmuch-config
     src: notmuch-config
-    trans:
-    - gpg
+    trans_read: gpg
   f_offlineimaprc:
     dst: ~/.offlineimaprc
     src: offlineimaprc
-    trans:
-    - gpg
-  f_passmenu.sh:
-    dst: ~/.config/i3/passmenu.sh
-    src: config/i3/passmenu.sh
+    trans_read: gpg
   f_redshift.conf:
     dst: ~/.config/redshift.conf
     src: config/redshift.conf
@@ -111,11 +104,6 @@ dotfiles:
   f_screenlayout-office.sh:
     dst: ~/.config/i3/screenlayout-office.sh
     src: config/i3/screenlayout-office.sh
-  f_settings.xml:
-    dst: ~/.m2/settings.xml
-    src: m2/settings.xml
-    trans:
-    - gpg
   f_siren-bordeaux.sh:
     dst: ~/.screenlayout/siren-bordeaux.sh
     src: screenlayout/siren-bordeaux.sh
@@ -154,5 +142,5 @@ profiles:
   troy:
     dotfiles:
     - ALL
-trans:
+trans_read:
   gpg: gpg -q --for-your-eyes-only --no-tty -d {0} > {1}

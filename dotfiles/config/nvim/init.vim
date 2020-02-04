@@ -1,3 +1,8 @@
+" https://github.com/dan-t/rusty-tags
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
+autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+
 au FileType javascript setl colorcolumn=140
 set noshowmode
 set t_Co=256
@@ -47,6 +52,8 @@ set t_RV= " http://bugs.debian.org/608242, http://groups.google.com/group/vim_de
 filetype off
 " initialize dein, plugins are installed to this directory
 call dein#begin(expand('~/.cache/dein'))
+
+call dein#add('dyng/dejava.vim')
 
 call dein#add('rking/ag.vim')
 let g:ag_prg = 'ag --vimgrep'
@@ -132,7 +139,7 @@ call dein#add('scrooloose/syntastic')
 call dein#add('felipec/notmuch-vim')
 
 call dein#add('vimwiki/vimwiki')
-let g:vimwiki_list = [{'path': '~/documents/wiki/', 'ext': '.md', 'syntax': 'markdown'}]
+let g:vimwiki_list = [{'path': '~/documents/wiki/'}]
 
 " call dein#add('itchyny/lightline.vim')
 " let g:lightline = {
@@ -163,32 +170,38 @@ call dein#add('mhinz/vim-signify')
 call dein#add('rust-lang/rust.vim')
 call dein#add('racer-rust/vim-racer')
 let g:racer_experimental_completer = 1
+let g:racer_cmd = "/home/yfful/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/racer"
+"/usr/bin/racer"
 let g:rustfmt_autosave = 1
+let g:rustfmt_command = 'rustfmt'
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 set hidden
-let g:racer_cmd = "/usr/bin/racer"
-let $RUST_SRC_PATH="/usr/src/rust/src/"
+"let $RUST_SRC_PATH="/usr/src/rust/src/"
 
-"call dein#add('autozimu/LanguageClient-neovim', {
-"    \ 'on_ft': 'rust',
-"    \ 'branch': 'next',
-"    \ 'build': 'bash install.sh',
-"    \ })
-"" Required for operations modifying multiple buffers like rename.
-"set hidden
+call dein#add('autozimu/LanguageClient-neovim', {
+    \ 'on_ft': 'rust',
+    \ 'rev': 'next',
+    \ 'build': 'bash install.sh',
+    \ })
+" Required for operations modifying multiple buffers like rename.
+set hidden
 
-"let g:LanguageClient_serverCommands = {
-"    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-"    \ }
+let g:LanguageClient_devel = 1 " Use rust debug build
+let g:LanguageClient_loggingLevel = 'DEBUG' " Use highest logging level
+let g:LanguageClient_loggingFile = '/tmp/rls.log'
+let g:LanguageClient_serverCommands = { 'rust': ['rustup', 'run', 'nightly', 'rls'] }
 
-"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-"" Or map each action separately
-"nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-"nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+call dein#add('/usr/share/vim/vimfiles/plugin/fzf.vim')
+call dein#add('junegunn/fzf.vim')
 
 call dein#add('cespare/vim-toml')
 
@@ -237,7 +250,15 @@ set completeopt=longest,menuone,preview
 
 call dein#add('tpope/vim-unimpaired')
 
-call dein#add('huawenyu/neogdb.vim')
+call dein#add('sakhnik/nvim-gdb')
+
+call dein#add('vim-scripts/loremipsum')
+
+call dein#add('raghur/vim-ghost', {'build': ':GhostInstall'})
+
+call dein#add('junegunn/goyo.vim', {'build': ':PlugInstall'})
+
+call dein#add('landaire/deoplete-d')
 
 " exit dein
 call dein#end()
@@ -254,10 +275,10 @@ au VimEnter * colorscheme solarized
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
 function! AppendModeline()
- "let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
-       "\ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
- "let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
- "call append(line("$"), l:modeline)
+ let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
+       \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+ let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+ call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
@@ -283,3 +304,10 @@ noremap <silent> <F4> :let @+=expand("%:p")<CR>
 
 " Search for visually selected text: http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/<C-R>"<CR>
+
+" Skeletons
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile story.md 0r ~/.config/nvim/templates/skeleton-GH-story.md
+  augroup END
+endif

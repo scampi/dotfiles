@@ -12,5 +12,5 @@ for box in $boxes; do
 done
 
 if [[ unread -ne 0 ]]; then
-	echo "Unread: $unread"
+	echo "<i>Unread</i>: $unread"
 fi

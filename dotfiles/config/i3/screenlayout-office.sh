@@ -6,3 +6,6 @@ bash ~/.screenlayout/siren-bordeaux.sh
 # Keyboard layout
 setxkbmap ie
 xmodmap ~/.Xmodmap
+
+# Set the background
+bash ~/.fehbg
