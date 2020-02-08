@@ -1,6 +1,7 @@
 actions:
   mv_to_chrome_folder: mkdir $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
     && ln -s $HOME/.mozilla/firefox/userC* $(find ~/.mozilla/firefox/ -name '*dev-edition-default')/chrome
+  dein_update: vim +"call dein#update()"
 config:
   backup: true
   banner: true
@@ -61,6 +62,8 @@ dotfiles:
   f_init.vim:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
+    actions:
+      - dein_update
   f_macros:
     dst: ~/.mutt/macros
     src: mutt/macros
