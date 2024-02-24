@@ -1,3 +1,13 @@
+;[delta]
+	;dark = true
+	;keep-plus-minus-markers = true
+	;side-by-side = true
+[core]
+	;pager = delta --plus-color="#012800" --minus-color="#340001"
+	autocrlf = input
+[interactive]
+	;diffFilter = delta --color-only
+	singleKey = false
 [user]
 	email = stephane.campinas@gmail.com
 	name = Stéphane Campinas
@@ -13,20 +23,18 @@
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
 [diff]
-  tool = nvimdiff
+	tool = nvimdiff
 [merge]
-  tool = nvimdiff
+	tool = nvimdiff
 [mergetool]
-  prompt = false
+	prompt = false
 [difftool "nvimdiff"]
-  prompt = false
-  cmd = nvim -d "$LOCAL" "$REMOTE"
+	prompt = false
+	cmd = nvim -d $LOCAL $REMOTE
 [mergetool "nvimdiff"]
-  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-[core]
-	autocrlf = input
+	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [commit]
 	gpgsign = true
-
-[interactive]
-	singleKey = false
+[filesystem "N/A|15.0.2|/dev/nvme0n1p4"]
+	timestampResolution = 9602 nanoseconds
+	minRacyThreshold = 3873 microseconds

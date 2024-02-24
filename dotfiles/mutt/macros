@@ -11,3 +11,8 @@ macro index <F8> \
 alternates "(stephane\.campinas@gmail\.com)|(stephane@siren\.solutions)"
 macro index \e1 ":set from=stephane.campinas@gmail.com\n:set status_format=\"───[ Folder: %f ]───[%r-stephane.campinas@gmail.com-%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───\"\n" "Switch to stephane.campinas@gmail.com"
 macro index \e2 ":set from=stephane@siren.solutions\n:set status_format=\"───[ Folder: %f ]───[%r-stephane@siren.solutions-%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───\"\n" "Switch to stephane@siren.solutions"
+
+macro index \es "vjs<enter>q" "save first attachement"
+
+# copy attachements to directory: https://unix.stackexchange.com/questions/37218/how-to-really-easily-save-all-tagged-attachments-in-mutt
+macro index,pager X "<pipe-message>ripmime -i - -d "

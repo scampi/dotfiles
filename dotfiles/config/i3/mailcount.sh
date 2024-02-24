@@ -11,6 +11,4 @@ for box in $boxes; do
 	unread=$((unread + new))
 done
 
-if [[ unread -ne 0 ]]; then
-	echo "<i>Unread</i>: $unread"
-fi
+jo -- icon=mail -s text=$unread

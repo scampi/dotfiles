@@ -4,3 +4,8 @@ set hlsearch
 set ignorecase
 set matchpairs
 set clipboard+=unnamedplus,unnamed
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
