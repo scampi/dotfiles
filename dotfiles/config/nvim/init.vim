@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'dylon/vim-antlr'
+
 " java decompiler with procyon
 Plug 'dyng/dejava.vim'
 
