@@ -63,7 +63,7 @@ dotfiles:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
     actions:
-      - dein_update
+    - dein_update
   f_macros:
     dst: ~/.mutt/macros
     src: mutt/macros
@@ -138,6 +138,9 @@ dotfiles:
   f_xserverrc:
     dst: ~/.xserverrc
     src: xserverrc
+  f_mail-stephane.timer:
+    src: config/systemd/user/mail-stephane.timer
+    dst: ~/.config/systemd/user/mail-stephane.timer
 profiles:
   mars:
     dotfiles:

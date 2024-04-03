@@ -1,0 +1,9 @@
+[Unit]
+Description=Get my mails every X mins
+
+[Timer]
+Persistent=true
+OnCalendar=*:0/10
+
+[Install]
+WantedBy=default.target
