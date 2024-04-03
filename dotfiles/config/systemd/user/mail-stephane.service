@@ -1,0 +1,6 @@
+[Unit]
+Description=Retrieves my emails
+
+[Service]
+Type=oneshot
+ExecStart=/home/yfful/documents/cron/mail.sh
