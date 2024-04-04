@@ -144,6 +144,9 @@ dotfiles:
   f_mail-stephane.service:
     src: config/systemd/user/mail-stephane.service
     dst: ~/.config/systemd/user/mail-stephane.service
+  f_settings.xml:
+    src: m2/settings.xml
+    dst: ~/.m2/settings.xml
 profiles:
   mars:
     dotfiles:
